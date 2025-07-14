@@ -1,0 +1,40 @@
+1.“Welcome email will be trigger automatically after userid is created”. What is the user creation flow that we’re having?
+-> oke, "How can we catch the user creation event"
+
+2.where is the trigger point to add email in queue? because member of company and user of system are different concept?
+-> same above 
+
+3.How to find onboarding date?
+-> oke 
+
+4.Do we need process Id for Welcome Email template to display in queue tab?currently we only have process Id for ad-hoc process
+-> oke 
+
+5. we modify email’s attribute such as content, send date, partner type,… Do we need to update the email accordingly in queue tab?if yes, which status should be updated?
+-> context: if template email was generated and added to queue tab 
+
+
+6.if we delete email template, do we need to delete email in queue tab?
+
+7.which role and permission can create, edit or delete  template and queue?
+
+8. how many language do we support in email content?
+-> oke
+
+9.If an email content has two languages, which one should be sent to member?
+-> Ok
+
+10.In send test email, which data will be populated in Send To textbox?
+-> will keep placeholder
+
+11.In send test email, select prod data, how can we mapping the users from multiple national id into one email content?
+-> ok
+
+12.do we allow two ad-hoc process have same company(or partner) and email template?if yes, how about if member list is overlapped?
+-> duplicate question with tuan
+
+13.In FF-304 ticket, Send Type has ‘immediate’ value in dropdown but there is ‘Daily Schedule’ value in the figma. Which one is correct?
+-> ok
+
+14.do we have full list of dynamic place holder?
+-> please mention in the ticket as well

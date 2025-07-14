@@ -1,0 +1,10 @@
+
+1.When sending a test email, based on the Figma design, it can be inferred that the expected behavior is to immediately receive a result
+ indicating success or failure. 
+ However, if the email is sent through MS365, we cannot know the result right away because it requires processing time. 
+ So, what is the actual expected flow for this feature?
+ -> define help what is success or failure ?
+2.And if we send a test email, will it be added to the queue tab?
+-> oke 
+3.Suggest Create Template from DD/MM/YYYY HH:MM:SS -> DD/MM/YYYY HH:MM
+-> because not send exactly specific hours and minutes and second 
