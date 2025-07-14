@@ -1,0 +1,53 @@
+Hi mọi người, theo như design cũ, a có hỏi lại 2 câu đầu và thêm mấy câu mới, mn check dùm nha:
+  1. Email Restriction Section
+	Users in FHN3 have various roles such as Employee, HR Manager, Doctor, etc.
+    ⇒ Do we currently restrict access to the email module in FHNX based on user roles, or is it accessible to all users?
+  2. Entity relationship in FHN3 DB
+	⇒ Could you explain the meaning and relationship between the following tables?
+	⇒ Is there any logic we need to consider for the email module? 
+	company_partner 
+	policy_partner
+	policy_group
+  3. Member creation in FHN3
+	We want to understand the logic used by the email module to detect new members
+	⇒ In FHN3, the backend considers a member as new if the `loginid` changes from `NULL` to the user's email. After this event occurs, our scheduled job runs in FHNX, so we cannot detect this change in real time. Is there any additional field in the database that indicates the `loginid` was created today?
+	⇒ The loginid can be created and updated on the same date, so how can we distinguish between the two events?
+       ⇒ Can you confirm that in FHNX, we only need to run the scheduled job once per day after 6:30 SGT?
+  4. General information, find contract owner
+	⇒ How do we find the correct contract owner for a specific member?
+	Given: member_id
+	Goal: find correct contract owner
+	Situation: In fhn3 database, a company can have multiple partners and the effect_date field exists in several tables, including `member`, `company`, `company_partner`, and `partner`, and needs to be considered in any comparison.
+	⇒ please provide the detailed logic
+  5. Email template tab, delete template
+	we want to delete an email template
+	⇒ What is the impact if the email template has already been used in an ad-hoc process?
+	⇒ Do we allow deletion in this case?
+	⇒ Should we display a warning message to the user in UI?
+  6. Email template tab, toggle feature
+	we want to toggle off an email template 
+	⇒ What is the impact if the email template has already been used in an ad-hoc process? câu này trả lời dòi mà ?
+	⇒ Do we allow to generate email for this process? -> Off - Do not use template
+	⇒ Should we display a warning message to the user in UI?
+  7. Ad-hoc tab, generate email feature
+    ⇒  if we need to re-generate an existing on-hold email for the same process ID, how should we handle this case?
+	⇒ Should we delete the old one and create a new email with status `on-hold`?
+  8. Queue tab, Export PDF feature
+	In Figma, we’re able to input an “export name” in the *Export Result* popup.
+    ⇒ If one file is selected, it will download as a single PDF file. Will the filename be the “export name”?
+    ⇒ If more than one file is selected, all PDFs will be zipped together. What will be the name of the ZIP file? And what will be the filenames of the individual PDF files inside the ZIP?
+  9. Queue tab, Export Result feature
+	⇒ Which formats do we support: Excel or PDF ?
+	⇒ Do we allow downloading for a specifically selected queue ?
+	⇒ What is the maximum number of queue items that can be exported if no specific queue is selected? Is it limited to items from the last 30 days?
+  10. Queue tab, approach to storing member information in FHNX
+	⇒ How should we store member, company, and contract-owner information in FHNX for the Queue tab, given that this data can change in FHN3?
+    -> store in FHNX 
+	We see two possible approaches:
+	⇒ option 1 - reference: store only the `member_id` in FHNX. 
+    We need to retrieve latest data from FHN3 to display in dashboard and each time an email is sent, look up the latest member and company data in FHN3 and regenerate the email content.
+	⇒ option 2 - Snapshot: store a snapshot of the member, company, and contract owner details directly in FHNX at the time of queue creation. 
+    Later changes to this data in FHN3 will not affect the record in the Queue.
+	which option do you prefer?
+  11. Can you explain flow state diagram ready ?
+  -> because It's not consistency with yesterday you replied me which status allowed feature send Immediately ?

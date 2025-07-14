@@ -1,0 +1,16 @@
+Email Template
+1. What is the purpose of the toggle on/off (active/ inactive) in the template email ? are we allowed to delete the active template?   
+-> reject because we clarify information about off do not use template. what is side effect ?
+
+1. We will adapt filters of template email in template email list page in case `OR` or `AND` of all filters?
+-> default behavior is AND 
+
+2. If we edit, delete email template, does it affect the ad-hoc processes which are using this template?
+-> good question
+
+Ad-hoc process
+1. For ad-hoc process, I suggest move sent-type together with X days / date to ad-hoc  process for the flexible update, and the ad-hoc will be not  decouple to template 
+-> Ok i agree with your idea . we will suggest our divide into scheduler tab  
+
+2. If we can't change current design that move sent-type and date/ x days to ad-hoc process, do we allow the case that generating two process which are instance of a same template ?
+-> Ok

@@ -1,0 +1,56 @@
+tab: queue
+1.what is default email status in queue? X
+-> ready status 
+-> cần 1 state diagram flow 
+
+2.which status can be used to reload ?
+-> cần 1 state diagram flow
+
+3.which data should be reloaded from template? only content? (nhiệm vụ reload cái là gì ?)
+
+4.After adding email in queue tab, we change the partner to another company or contract owner for the template, the email in queue may not belong to new company, how can we deal with reload feature in this case?
+-> khi add email vào queue tab, nếu sau đó thay đổi partner sang company khác hoặc contract owner khác thì mong muốn của bạn là gì á ? 
+
+5.If we delete template, there is no content to reload into queue, how can we deal in this case? any message in UI?
+-> hỏi lại
+
+6.which status will be updated after we reload for email status not on-hold(error, ready, no email, success)? should we change to ready if reload success?
+-> need status table flow function button (reload ) in queue tab
+
+7.which status can be used to Send Immediately? only ready email? X
+-> dưa vào status nào để biết email not send -> sẽ hiện nút send ngay lập tức 
+
+8.which status can be used to Resend? only sent out(success) email? X
+-> dưa vào status nào để biết email  send -> sẽ hiện nút Resend
+
+9.Regarding Resend feature, should we create new queue item with same content or use existing one? 
+if we use existing one, the status can be failed, do we need to track the sending history or just keep the latest status? X
+-> khi resend nên đc add vào 1 queue mới hay dùng 1 queue cũ. nếu mà chúng ta update lại queue cũ thì chúng ta có cần log lại hết history á ? 
+
+10.which status can be changed to On Hold/Ready? X
+-> cần 1 state diagram flow
+
+11.which status can be deleted? X
+-> cần 1 state diagram flow
+
+12.User able to select multiple email in queue with different statuses, what is the logic to identify which action should be displayed? X
+-> chưa thấy đề cập trên ticket
+
+13.how many delivery statuses do we have?
+
+-> Note Need One State Diagram Flow Function Queue Tab (reload, change status, )
+
+14.do we allow two ad-hoc process have same company(or partner) and email template? if yes, how about if member list is overlapped? in this case, one member can receive 2 times the same email at the same time. X
+-> 
+
+15. Những ai có quyền action vào auto email ?
+
+16. Nút export chỉ allow cho những member ko có email phải ko ? 
+
+17. Làm sao có thể biết đc 1 user đc tạo loginId để trigger việc gửi auto email ở hệ thống FHNX ?
+
+18.
+    1 Lấy trực tiếp vào bảng member để FHNX Auto email có thể send email ? Lấy như thế nào để control những member mới vào ?
+    2 Cron kéo data về sau thời gian Cron của FHN3 chạy (bảng data snapshot từ DB FHN3)
+        - cờ 1 để đánh đã send email cho user nào rồi 
+        - 1 cái điểm để start cron kéo tiếp info user về 
