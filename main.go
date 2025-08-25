@@ -1,6 +1,6 @@
 package main
 
-import "giabao.com/concurrency"
+import "giabao.com/go101"
 
 func main() {
 	// goroutine.Goroutine()
@@ -28,5 +28,11 @@ func main() {
 	// concurrency.MainBoring()
 	// concurrency.MainChannelBoring()
 	// concurrency.TestCtx()
-	concurrency.TestErrorGroup()
+	// concurrency.TestErrorGroup()
+
+	// go 101
+	// go101.FanOutGoroutineProducer()
+	// go101.FanOutMainProducer()
+	go101.FanIn()
+
 }
