@@ -3,11 +3,14 @@ package go101
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
-func Stage1() <-chan int {
+var bufferSize = 3
+
+func Stage4() <-chan int {
 	// Stage 1: sinh ra 100 số nguyên từ 1 → 100.
-	ch := make(chan int)
+	ch := make(chan int, bufferSize)
 
 	go func() {
 		for i := 1; i <= 100; i++ {
@@ -19,9 +22,9 @@ func Stage1() <-chan int {
 	return ch
 }
 
-func Stage2(in <-chan int) <-chan int {
+func Stage5(in <-chan int) <-chan int {
 	// Stage 2: lọc ra số chẵn.
-	ch := make(chan int)
+	ch := make(chan int, bufferSize)
 	var wg sync.WaitGroup
 
 	workerNum := 3
@@ -30,9 +33,9 @@ func Stage2(in <-chan int) <-chan int {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			fmt.Println("start worker")
 			for v := range in {
 				if v%2 == 0 {
+					time.Sleep(time.Second * 2)
 					ch <- v
 				}
 			}
@@ -47,17 +50,18 @@ func Stage2(in <-chan int) <-chan int {
 	return ch
 }
 
-func Stage3(in <-chan int) {
+func Stage6(in <-chan int) {
 	// Stage 3: bình phương số đó và in ra.
 
 	for v := range in {
-		fmt.Println("value: ", v*v)
+		fmt.Println("final stage 6 receive value: ", v*v)
+
 	}
 
 }
 
-func Piepline() {
-	ch := Stage1()
-	ch = Stage2(ch)
-	Stage3(ch)
+func PieplineBuffered() {
+	ch := Stage4()
+	ch = Stage5(ch)
+	Stage6(ch)
 }
