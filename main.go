@@ -33,6 +33,7 @@ func main() {
 	// go 101
 	// go101.FanOutGoroutineProducer()
 	// go101.FanOutMainProducer()
-	go101.FanIn()
+	// go101.FanIn()
+	go101.Piepline()
 
 }
