@@ -34,6 +34,20 @@ func main() {
 	// go101.FanOutGoroutineProducer()
 	// go101.FanOutMainProducer()
 	// go101.FanIn()
-	go101.PieplineBuffered()
+	// go101.PieplineBuffered()
+	// go101.PieplineUnBuffered()
+	// go101.HandleWorkerPool()
+	// go101.HandleTaskWithContextTimeout()
 
+	// go101.HandleSemaphore(10)
+	// go101.HandleTeeChannel()
+
+	// go101.HandleMultiTee()
+	// go101.HandleOrPattern()
+	// go101.HandleOrPatternAny()
+	// go101.HandlePromiseAllGolang()
+	// go101.HandlePromiseAllSettled()
+
+	// go101.HandleBoundedWorkQueue()
+	go101.DeadLockWg()
 }
